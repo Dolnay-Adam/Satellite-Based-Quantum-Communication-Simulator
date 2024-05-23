@@ -5,6 +5,7 @@
 #include "Material.h"
 #include "Geometry.h"
 #include "LinAlg.h"
+#include "Camera.h"
 
 class Mesh
 {
@@ -14,7 +15,7 @@ public:
 
 	Mesh& setPosition(vec3 pos);
 
-	void draw();
+	void draw(std::shared_ptr<Camera> camera);
 
 private:
 	std::shared_ptr<Material> m_material;

@@ -15,5 +15,5 @@ void main(){
 	vec4 p = vec4(vp, 1.0f) * MVP;
 	VSO.position = p.xyz;
 	VSO.texCoord = texCoord;
-	gl_Position = vec4(vp.x, vp.y, 0.0f, 1.0f);
+	gl_Position = vec4(vp.x, vp.y, 1.0f, 1.0f);
 }

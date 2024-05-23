@@ -3,12 +3,11 @@
 FullScreenQuadGeometry::FullScreenQuadGeometry()
 {
 	vao.Bind();
-
 	std::vector<vec3> positions = {
-		vec3(-1.f, -1.f, 0.f),
-		vec3(-1.f, 1.f, 0.f),
-		vec3(1.f, -1.f, 0.f),
-		vec3(1.f, 1.f, 0.f)
+		vec3(-1.f, -1.f, 1.0f),
+		vec3(-1.f, 1.f, 1.0f),
+		vec3(1.f, -1.f, 1.0f),
+		vec3(1.f, 1.f, 1.0f)
 	};
 
 	std::vector<vec2> texCoords = {

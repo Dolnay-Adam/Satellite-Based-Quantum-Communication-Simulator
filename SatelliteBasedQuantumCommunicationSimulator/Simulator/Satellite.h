@@ -5,15 +5,18 @@
 #define _USE_MATH_DEFINES
 #include "math.h"
 
+#include "Orbit.h"
+#include "Coordinates.h"
+
 
 class Satellite : public Entity
 {
 public:
-	Satellite(std::shared_ptr<Mesh> mesh);
+	explicit Satellite(std::shared_ptr<Mesh> mesh);
 	
 	void update(float dt) override;
 	
 private:
-	float t = 0;
+	std::shared_ptr<Orbit> m_orbit;
 };
 

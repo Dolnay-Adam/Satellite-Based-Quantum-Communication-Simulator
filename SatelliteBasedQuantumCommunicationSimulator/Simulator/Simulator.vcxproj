@@ -131,6 +131,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Coordinates.cpp" />
+    <ClCompile Include="CubeGeometry.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FullScreenQuadGeometry.cpp" />
     <ClCompile Include="FullScreenTexture.cpp" />
@@ -138,6 +141,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Orbit.cpp" />
     <ClCompile Include="PointGeometry.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="Satellite.cpp" />
@@ -150,7 +154,10 @@
     <ClCompile Include="VBO.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Common.h" />
+    <ClInclude Include="Coordinates.h" />
+    <ClInclude Include="CubeGeometry.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FullScreenQuadGeometry.h" />
     <ClInclude Include="FullScreenTexture.h" />
@@ -158,6 +165,7 @@
     <ClInclude Include="LinAlg.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Orbit.h" />
     <ClInclude Include="PointGeometry.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="Satellite.h" />

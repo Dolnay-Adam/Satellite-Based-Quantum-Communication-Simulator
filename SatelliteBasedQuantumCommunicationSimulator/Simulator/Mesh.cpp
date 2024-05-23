@@ -10,14 +10,25 @@ Mesh& Mesh::setPosition(vec3 position)
 	return *this;
 }
 
-void Mesh::draw()
+void Mesh::draw(std::shared_ptr<Camera> camera)
 {
 	m_material->bindProgram();
 
 	// Add uniforms here
 	mat4 M = TranslateMatrix(m_position);
 
-	m_material->SetMatrix(M, "MVP");
+	mat4 V;
+	camera->getViewMatrix(V);
+	mat4 P;
+	camera->getProjMatrix(P);
+
+	//mat4 MVP = M * V * P;
+
+	//m_material->SetMatrix(MVP, "MVP");
+	m_material->SetMatrix(M, "M");
+	m_material->SetMatrix(V, "V");
+	m_material->SetMatrix(P, "P");
+
 
 	m_material->draw();
 	m_geometry->draw();

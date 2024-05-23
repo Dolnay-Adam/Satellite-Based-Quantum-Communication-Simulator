@@ -17,6 +17,8 @@
 #include "PointGeometry.h"
 #include "FullScreenQuadGeometry.h"
 #include "FullScreenTexture.h"
+#include "Camera.h"
+#include "CubeGeometry.h"
 
 #define _USE_MATH_DEFINES
 #include "math.h"
@@ -37,5 +39,7 @@ public:
 private:
 	float t;
 	std::vector<std::shared_ptr<Entity>> entities;
+
+	std::shared_ptr<Camera> camera;
 };
 

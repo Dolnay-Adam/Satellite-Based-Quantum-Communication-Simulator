@@ -1,6 +1,7 @@
 #include "Scene.h"
 
 Scene::Scene() {
+	camera = std::make_shared<Camera>();
 }
 
 void Scene::build()
@@ -21,7 +22,7 @@ void Scene::build()
 	auto bgMesh = Mesh(texturedMaterial, fullScreenQuad);
 
 	Entity bg(std::make_shared<Mesh>(bgMesh));
-	entities.push_back(std::make_shared<Entity>(bg));
+	//entities.push_back(std::make_shared<Entity>(bg));
 
 
 	// Satellite
@@ -35,14 +36,22 @@ void Scene::build()
 		.Bind();
 
 	auto material = std::make_shared<Material>(basicProgram);
-	std::shared_ptr<Geometry> geometry = std::make_shared<PointGeometry>();
+	std::shared_ptr<Geometry> geometry = std::make_shared<CubeGeometry>();
 	auto mesh = Mesh(material, geometry);
 	Satellite sat(std::make_shared<Mesh>(mesh));
 	entities.push_back(std::make_shared<Satellite>(sat));
+
+	//GlobeCube
+	std::shared_ptr<Geometry> cubeGeometry = std::make_shared<CubeGeometry>();
+	auto cubeMesh = Mesh(material, cubeGeometry);
+	Entity cube(std::make_shared<Mesh>(cubeMesh));
+	//entities.push_back(std::make_shared<Entity>(cube));
 }
 
 void Scene::update(float dt)
 {
+	camera->animate(dt);
+
 	for (auto const& e : entities) {
 		e->update(dt);
 	}
@@ -51,26 +60,29 @@ void Scene::update(float dt)
 void Scene::draw()
 {
 	for (auto const& e : entities) {
-		e->draw();
+		e->draw(camera);
 	}
 }
 
 void Scene::onKeyboard(unsigned char key)
 {
-	//Intentionally empty
+	camera->processKey(key, KEYDOWN);
 }
 
 void Scene::onKeyboardUp(unsigned char key)
 {
-	//Intentionally empty
+	camera->processKey(key, KEYUP);
 }
 
 void Scene::onMouse(int button, int state, int pX, int pY)
 {
-	//Intentionally empty
+	if (state == GLUT_DOWN)
+		camera->processMouseButton(KEYDOWN, pX, pY);
+	if (state == GLUT_UP)
+		camera->processMouseButton(KEYUP, pX, pY);
 }
 
 void Scene::onMouseMotion(int pX, int pY)
 {
-	//Intentionally empty
+	camera->processMouseMove(pX, pY);
 }

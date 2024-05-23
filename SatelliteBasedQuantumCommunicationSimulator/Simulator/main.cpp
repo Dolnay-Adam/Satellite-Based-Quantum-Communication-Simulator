@@ -45,15 +45,19 @@ void onDisplay2() {
 }
 
 void onKeyboard(unsigned char key, int pX, int pY) {
+	scene.onKeyboard(key);
 }
 
 void onKeyboardUp(unsigned char key, int pX, int pY) {
+	scene.onKeyboardUp(key);
 }
 
 void onMouse(int button, int state, int pX, int pY) {
+	scene.onMouse(button, state, pX, pY);
 }
 
 void onMouseMotion(int pX, int pY) {
+	scene.onMouseMotion(pX, pY);
 }
 
 int main(int argc, char * argv[]) {
