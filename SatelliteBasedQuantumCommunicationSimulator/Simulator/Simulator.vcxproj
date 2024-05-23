@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libs\freeglut\include\;$(SolutionDir)Libs\glew-2.1.0\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libs\freeglut\include\;$(SolutionDir)Libs\glew-2.1.0\include\;$(SolutionDir)Libs\imGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -131,6 +131,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Libs\imGui\imgui.cpp" />
+    <ClCompile Include="..\Libs\imGui\imgui_demo.cpp" />
+    <ClCompile Include="..\Libs\imGui\imgui_draw.cpp" />
+    <ClCompile Include="..\Libs\imGui\imgui_impl_glut.cpp" />
+    <ClCompile Include="..\Libs\imGui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="..\Libs\imGui\imgui_tables.cpp" />
+    <ClCompile Include="..\Libs\imGui\imgui_widgets.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Coordinates.cpp" />
     <ClCompile Include="CubeGeometry.cpp" />
@@ -154,6 +161,15 @@
     <ClCompile Include="VBO.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Libs\imGui\imconfig.h" />
+    <ClInclude Include="..\Libs\imGui\imgui.h" />
+    <ClInclude Include="..\Libs\imGui\imgui_impl_glut.h" />
+    <ClInclude Include="..\Libs\imGui\imgui_impl_opengl3.h" />
+    <ClInclude Include="..\Libs\imGui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="..\Libs\imGui\imgui_internal.h" />
+    <ClInclude Include="..\Libs\imGui\imstb_rectpack.h" />
+    <ClInclude Include="..\Libs\imGui\imstb_textedit.h" />
+    <ClInclude Include="..\Libs\imGui\imstb_truetype.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Coordinates.h" />

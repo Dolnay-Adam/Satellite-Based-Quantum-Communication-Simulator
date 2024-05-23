@@ -1,7 +1,13 @@
-#include <iostream>
-#include <windows.h>
 #include <GL/glew.h>
+
+#include <windows.h>
 #include <GL/freeglut.h>
+
+#include "imgui.h"
+#include "imgui_impl_glut.h"
+#include "imgui_impl_opengl3.h"
+
+#include <iostream>
 #include <vector>
 #include <chrono>
 
@@ -33,7 +39,20 @@ void onDisplay1() {
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
+
+	ImGui_ImplOpenGL3_NewFrame();
+	ImGui_ImplGLUT_NewFrame();
+	ImGui::NewFrame();
+	ImGuiIO& io = ImGui::GetIO();
+
 	scene.draw();
+
+	ImGui::Begin("ImGui");
+	ImGui::Text("Hello There!");
+	ImGui::End();
+
+	ImGui::Render();
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 	glutSwapBuffers();
 }
@@ -100,7 +119,22 @@ int main(int argc, char * argv[]) {
 	glutKeyboardUpFunc(onKeyboardUp);
 	glutMotionFunc(onMouseMotion);
 
+
+	IMGUI_CHECKVERSION();
+	ImGui::CreateContext();
+	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	ImGui::StyleColorsDark();
+	ImGui_ImplGLUT_Init();
+	
+	ImGui_ImplOpenGL3_Init("#version 460");
+	ImGui_ImplGLUT_InstallFuncs();
+
 	glutMainLoop();	
+
+
+	ImGui_ImplOpenGL3_Shutdown();
+	ImGui_ImplGLUT_Shutdown();
+	ImGui::DestroyContext();
 
 	return 0;
 }

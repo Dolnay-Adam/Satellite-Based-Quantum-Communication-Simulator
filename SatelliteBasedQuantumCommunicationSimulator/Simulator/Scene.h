@@ -4,7 +4,6 @@
 #include <iostream>
 #include <vector>
 
-
 #include "stb_image.h"
 #include "LinAlg.h"
 

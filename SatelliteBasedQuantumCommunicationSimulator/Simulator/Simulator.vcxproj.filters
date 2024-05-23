@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\imGui">
+      <UniqueIdentifier>{2d81cd00-5de9-49c8-bfdf-3ba34afb8529}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\imGui">
+      <UniqueIdentifier>{f31d720d-f84b-49fd-be30-1d0440d4b9dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -77,6 +83,27 @@
     </ClCompile>
     <ClCompile Include="CubeGeometry.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\imGui\imgui_impl_opengl3.cpp">
+      <Filter>Source Files\imGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\imGui\imgui_tables.cpp">
+      <Filter>Source Files\imGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\imGui\imgui_widgets.cpp">
+      <Filter>Source Files\imGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\imGui\imgui.cpp">
+      <Filter>Source Files\imGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\imGui\imgui_demo.cpp">
+      <Filter>Source Files\imGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\imGui\imgui_draw.cpp">
+      <Filter>Source Files\imGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\imGui\imgui_impl_glut.cpp">
+      <Filter>Source Files\imGui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +172,33 @@
     </ClInclude>
     <ClInclude Include="CubeGeometry.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\imGui\imgui_impl_opengl3.h">
+      <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\imGui\imgui_internal.h">
+      <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\imGui\imstb_rectpack.h">
+      <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\imGui\imstb_textedit.h">
+      <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\imGui\imstb_truetype.h">
+      <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\imGui\imconfig.h">
+      <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\imGui\imgui.h">
+      <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\imGui\imgui_impl_glut.h">
+      <Filter>Header Files\imGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\imGui\imgui_impl_opengl3_loader.h">
+      <Filter>Header Files\imGui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
