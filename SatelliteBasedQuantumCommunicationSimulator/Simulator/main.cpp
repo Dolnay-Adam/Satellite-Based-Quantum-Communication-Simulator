@@ -1,140 +1,126 @@
-#include <GL/glew.h>
-
-#include <windows.h>
-#include <GL/freeglut.h>
-
 #include "imgui.h"
-#include "imgui_impl_glut.h"
+#include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
-#include <iostream>
-#include <vector>
-#include <chrono>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
-#include "stb_image.h"
-#include "LinAlg.h"
-#include "Shader.h"
-#include "Program.h"
+#include <iostream>
+#include <chrono>
 #include "Scene.h"
 
-std::chrono::steady_clock::time_point timeAtLastFrame;
 
+std::chrono::steady_clock::time_point timeAtLastFrame;
 Scene scene = Scene();
 
-void onInitialization() {
+void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+	glViewport(0, 0, width, height);
+}
+
+void processInput(GLFWwindow* window) {
+
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, true);
+}
+
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+	scene.keyEventFunc(key, action);
+}
+
+void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {
+	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	if (!io.WantCaptureMouse) {
+		scene.mouseMotionFunc(xpos, ypos);
+	}
+}
+
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
+	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	if (!io.WantCaptureMouse) {
+		scene.mouseButtonFunc(button, action);
+	}
+}
+
+void initialization(GLFWwindow* window) {
 	scene.build();
 	timeAtLastFrame = std::chrono::steady_clock::now();
+
+	glfwSetKeyCallback(window, key_callback);
+	glfwSetCursorPosCallback(window, cursor_position_callback);
+	glfwSetMouseButtonCallback(window, mouse_button_callback);
 }
 
-void onIdle() {
-	std::chrono::steady_clock::time_point timeAtThisFrame = std::chrono::steady_clock::now();
-	float dt = std::chrono::duration<float, std::milli>(timeAtThisFrame - timeAtLastFrame).count() / 1000.0f;
-	timeAtLastFrame = timeAtThisFrame;
+int main()
+{
+	glfwInit();
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	scene.update(dt);
-	glutPostRedisplay();
-}
+	GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
+	if (window == NULL) {
+		std::cout << "Failed to create GLFW window" << std::endl;
+		glfwTerminate();
+		return -1;
+	}
+	glfwMakeContextCurrent(window);
 
-void onDisplay1() {
-	glClearColor(0, 0, 0, 0);
-	glClear(GL_COLOR_BUFFER_BIT);
-	
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+		std::cout << "Failed to initialize GLAD" << std::endl;
+		return -1;
+	}
 
-	ImGui_ImplOpenGL3_NewFrame();
-	ImGui_ImplGLUT_NewFrame();
-	ImGui::NewFrame();
-	ImGuiIO& io = ImGui::GetIO();
-
-	scene.draw();
-
-	ImGui::Begin("ImGui");
-	ImGui::Text("Hello There!");
-	ImGui::End();
-
-	ImGui::Render();
-	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-	glutSwapBuffers();
-}
-
-void onDisplay2() {
-	glClearColor(1, 0, 0, 0);
-	glClear(GL_COLOR_BUFFER_BIT);
-	glutSwapBuffers();
-}
-
-void onKeyboard(unsigned char key, int pX, int pY) {
-	scene.onKeyboard(key);
-}
-
-void onKeyboardUp(unsigned char key, int pX, int pY) {
-	scene.onKeyboardUp(key);
-}
-
-void onMouse(int button, int state, int pX, int pY) {
-	scene.onMouse(button, state, pX, pY);
-}
-
-void onMouseMotion(int pX, int pY) {
-	scene.onMouseMotion(pX, pY);
-}
-
-int main(int argc, char * argv[]) {
-	glutInit(&argc, argv);
-
-	int majorVersion = 4;
-	int minorVersion = 6;
-	glutInitContextVersion(majorVersion, minorVersion);
-
-	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
-
-	//glutInitWindowSize(600, 400);
-	//glutInitWindowPosition(700, 500);
-	//int w2 = glutCreateWindow("Globe");
-
-	glutInitWindowSize(600, 400);
-	glutInitWindowPosition(100, 100);
-	int w1 = glutCreateWindow("Projection");
-
-	glewExperimental = true;
-	glewInit();
-
-	glGetIntegerv(GL_MAJOR_VERSION, &majorVersion);
-	glGetIntegerv(GL_MINOR_VERSION, &minorVersion);
-
-	glViewport(0, 0, 600, 600);
-
-	onInitialization(); //Ez is arra az ablakra vonatkozik, ami éppen aktív
-
-	//glutSetWindow(w1);
-	glutDisplayFunc(onDisplay1);
-	glutIdleFunc(onIdle);
+	glViewport(0, 0, 800, 600);
+	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
 
-	//glutSetWindow(w2);
-	//glutDisplayFunc(onDisplay2);
-	glutMouseFunc(onMouse);
-	glutIdleFunc(onIdle);
-	glutKeyboardFunc(onKeyboard);
-	glutKeyboardUpFunc(onKeyboardUp);
-	glutMotionFunc(onMouseMotion);
+	initialization(window);
 
-
+	// Set up ImGui
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
 	ImGui::StyleColorsDark();
-	ImGui_ImplGLUT_Init();
-	
+	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init("#version 460");
-	ImGui_ImplGLUT_InstallFuncs();
 
-	glutMainLoop();	
+	while (!glfwWindowShouldClose(window)) {
+		// time calculations
+		std::chrono::steady_clock::time_point timeAtThisFrame = std::chrono::steady_clock::now();
+		float dt = std::chrono::duration<float, std::milli>(timeAtThisFrame - timeAtLastFrame).count() / 1000.0f;
+		timeAtLastFrame = timeAtThisFrame;
+		
+		// input
+		processInput(window);
 
+		// simulation step
+		scene.update(dt);
+		
+		// rendering commands here
+		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		ImGui_ImplOpenGL3_NewFrame();
+		ImGui_ImplGlfw_NewFrame();
+		ImGui::NewFrame();
+
+		scene.draw();
+
+		ImGui::Begin("ImGui window");
+		ImGui::Text("Hello there!");
+		ImGui::End();
+
+		ImGui::Render();
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+		// check and call events and swap the buffers
+		glfwSwapBuffers(window);
+		glfwPollEvents();
+	}
 
 	ImGui_ImplOpenGL3_Shutdown();
-	ImGui_ImplGLUT_Shutdown();
+	ImGui_ImplGlfw_Shutdown();
 	ImGui::DestroyContext();
 
+	glfwTerminate();
 	return 0;
 }
