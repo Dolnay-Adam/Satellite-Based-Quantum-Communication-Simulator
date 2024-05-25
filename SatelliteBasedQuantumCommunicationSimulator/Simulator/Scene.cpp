@@ -64,25 +64,27 @@ void Scene::draw()
 	}
 }
 
-void Scene::onKeyboard(unsigned char key)
+void Scene::mouseMotionFunc(double x, double y)
 {
-	camera->processKey(key, KEYDOWN);
+	camera->processMouseMove((int)x, (int)y);
 }
 
-void Scene::onKeyboardUp(unsigned char key)
+void Scene::mouseButtonFunc(int button, int action)
 {
-	camera->processKey(key, KEYUP);
+	if (action == GLFW_PRESS) {
+		camera->processMouseButton(KEYDOWN);
+	}
+	if (action == GLFW_RELEASE) {
+		camera->processMouseButton(KEYUP);
+	}
 }
 
-void Scene::onMouse(int button, int state, int pX, int pY)
+void Scene::keyEventFunc(int key, int action)
 {
-	if (state == GLUT_DOWN)
-		camera->processMouseButton(KEYDOWN, pX, pY);
-	if (state == GLUT_UP)
-		camera->processMouseButton(KEYUP, pX, pY);
-}
-
-void Scene::onMouseMotion(int pX, int pY)
-{
-	camera->processMouseMove(pX, pY);
+	if (action == GLFW_PRESS) {
+		camera->processKey(key, KEYDOWN);
+	}
+	if (action == GLFW_RELEASE) {
+		camera->processKey(key, KEYUP);
+	}
 }

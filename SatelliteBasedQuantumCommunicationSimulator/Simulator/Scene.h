@@ -1,6 +1,7 @@
 #pragma once
-#include <GL/glew.h>
-#include <GL/freeglut.h>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
 #include <iostream>
 #include <vector>
 
@@ -29,11 +30,10 @@ public:
 	void build();
 	void update(float dt);
 	void draw();
-
-	void onKeyboard(unsigned char key);
-	void onKeyboardUp(unsigned char key);
-	void onMouse(int button, int state, int pX, int pY);
-	void onMouseMotion(int pX, int pY);
+	
+	void mouseMotionFunc(double x, double y);
+	void mouseButtonFunc(int button, int action);
+	void keyEventFunc(int key, int action);
 
 private:
 	float t;

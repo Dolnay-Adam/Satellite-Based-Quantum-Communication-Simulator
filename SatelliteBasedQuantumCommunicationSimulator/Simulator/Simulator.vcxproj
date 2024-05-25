@@ -70,6 +70,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Users\adamd\source\repos\quantum-space-communication-simulation\SatelliteBasedQuantumCommunicationSimulator\Libs\glfw-3.4\include;C:\Users\adamd\source\repos\quantum-space-communication-simulation\SatelliteBasedQuantumCommunicationSimulator\Libs\glad\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\adamd\source\repos\quantum-space-communication-simulation\SatelliteBasedQuantumCommunicationSimulator\Libs\glfw-3.4\lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -108,10 +112,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libs\glad\include\;$(SolutionDir)Libs\glfw-3.4\include\;$(SolutionDir)Libs\imGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)Libs\glfw-3.4\lib\x64\;$(SolutionDir)Libs\glew-2.1.0\lib\Release\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/VERBOSE %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -131,10 +140,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Libs\glad\src\glad.c" />
     <ClCompile Include="..\Libs\imGui\imgui.cpp" />
     <ClCompile Include="..\Libs\imGui\imgui_demo.cpp" />
     <ClCompile Include="..\Libs\imGui\imgui_draw.cpp" />
-    <ClCompile Include="..\Libs\imGui\imgui_impl_glut.cpp" />
+    <ClCompile Include="..\Libs\imGui\imgui_impl_glfw.cpp" />
     <ClCompile Include="..\Libs\imGui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="..\Libs\imGui\imgui_tables.cpp" />
     <ClCompile Include="..\Libs\imGui\imgui_widgets.cpp" />
@@ -163,7 +173,7 @@
   <ItemGroup>
     <ClInclude Include="..\Libs\imGui\imconfig.h" />
     <ClInclude Include="..\Libs\imGui\imgui.h" />
-    <ClInclude Include="..\Libs\imGui\imgui_impl_glut.h" />
+    <ClInclude Include="..\Libs\imGui\imgui_impl_glfw.h" />
     <ClInclude Include="..\Libs\imGui\imgui_impl_opengl3.h" />
     <ClInclude Include="..\Libs\imGui\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="..\Libs\imGui\imgui_internal.h" />

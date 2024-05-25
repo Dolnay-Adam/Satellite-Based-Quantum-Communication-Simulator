@@ -1,6 +1,6 @@
 #pragma once
 
-#include <GL/Glew.h>
+#include <glad/glad.h>
 #include <vector>
 #include "LinAlg.h"
 #include "VBO.h"

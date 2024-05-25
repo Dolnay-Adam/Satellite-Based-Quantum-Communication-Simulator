@@ -33,6 +33,7 @@ class Camera {
 	bool mouseClicked;
 	vec2 lastMousePos;
 	vec2 mouseDelta;
+	vec2 mousePos;
 
 
 public:
@@ -44,6 +45,6 @@ public:
 
 	void processKey(unsigned char key, KeyStatus status);
 	void processMouseMove(int pX, int pY);
-	void processMouseButton(KeyStatus status, int pX, int pY);
+	void processMouseButton(KeyStatus status);
 };
 

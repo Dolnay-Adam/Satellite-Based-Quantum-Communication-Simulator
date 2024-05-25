@@ -80,50 +80,50 @@ void Camera::animate(float dt) {
 
 void Camera::processKey(unsigned char key, KeyStatus status) {
 	if (status == KEYDOWN) {
-		if (key == 'w')
+		if (key == 'W')
 			wPressed = true;
-		if (key == 'a')
+		if (key == 'A')
 			aPressed = true;
-		if (key == 's')
+		if (key == 'S')
 			sPressed = true;
-		if (key == 'd')
+		if (key == 'D')
 			dPressed = true;
-		if (key == 'e')
+		if (key == 'E')
 			ePressed = true;
-		if (key == 'q')
+		if (key == 'Q')
 			qPressed = true;
 	}
 	if (status == KEYUP) {
-		if (key == 'w')
+		if (key == 'W')
 			wPressed = false;
-		if (key == 'a')
+		if (key == 'A')
 			aPressed = false;
-		if (key == 's')
+		if (key == 'S')
 			sPressed = false;
-		if (key == 'd')
+		if (key == 'D')
 			dPressed = false;
-		if (key == 'e')
+		if (key == 'E')
 			ePressed = false;
-		if (key == 'q')
+		if (key == 'Q')
 			qPressed = false;
 	}
 }
 
 void Camera::processMouseMove(int pX, int pY) {
+	mousePos = vec2(pX, pY);
 	if (mouseClicked) {
-		vec2 mousePos = vec2(pX, pY);
 		mouseDelta = mousePos - lastMousePos;
 		lastMousePos = mousePos;
 	}
 }
 
-void Camera::processMouseButton(KeyStatus status, int  pX, int pY) {
+void Camera::processMouseButton(KeyStatus status) {
 	if (status == KEYUP) {
 		mouseClicked = false;
 		mouseDelta = vec2(0, 0);
 	}
 	if (status == KEYDOWN) {
 		mouseClicked = true;
-		lastMousePos = vec2(pX, pY);
+		lastMousePos = mousePos;
 	}
 }
