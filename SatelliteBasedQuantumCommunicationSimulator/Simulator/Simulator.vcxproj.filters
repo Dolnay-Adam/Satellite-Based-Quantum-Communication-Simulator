@@ -28,12 +28,21 @@
     <Filter Include="Source Files\imGui">
       <UniqueIdentifier>{669981b7-adfe-418b-9026-bfd026d942c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Graphics\Framework">
+      <UniqueIdentifier>{a32f5fdd-8a48-4d6d-8043-02b439ea0fef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphics\stb_image">
+      <UniqueIdentifier>{3f091c8b-9e9a-4ac9-a375-5c6359d3ea24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics\Framework">
+      <UniqueIdentifier>{ccb5a55b-ccbd-4f77-936f-ea5a74f103af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics\std_image">
+      <UniqueIdentifier>{1f573e2d-77c1-4a2f-b8d8-78914590a440}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Satellite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Orbit.cpp">
@@ -42,16 +51,7 @@
     <ClCompile Include="..\Libs\glad\src\glad.c">
       <Filter>Source Files\glad</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Coordinates.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="CubeGeometry.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="FullScreenQuadGeometry.cpp">
@@ -60,40 +60,10 @@
     <ClCompile Include="FullScreenTexture.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Geometry.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Material.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="PointGeometry.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Program.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="stb_image.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Uniform.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="VAO.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="VBO.cpp">
+    <ClCompile Include="ProjectedScene.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="..\Libs\imGui\imgui_demo.cpp">
@@ -117,6 +87,57 @@
     <ClCompile Include="..\Libs\imGui\imgui.cpp">
       <Filter>Source Files\imGui</Filter>
     </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image.cpp">
+      <Filter>Source Files\Graphics\std_image</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Graphics\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Coordinates.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Graphics\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry.cpp">
+      <Filter>Source Files\Graphics\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Source Files\Graphics\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files\Graphics\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Program.cpp">
+      <Filter>Source Files\Graphics\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files\Graphics\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files\Graphics\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Uniform.cpp">
+      <Filter>Source Files\Graphics\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="VAO.cpp">
+      <Filter>Source Files\Graphics\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="VBO.cpp">
+      <Filter>Source Files\Graphics\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobeScene.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="SatelliteProjectedView.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="SatelliteBasicView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">
@@ -125,65 +146,14 @@
     <ClInclude Include="Orbit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VAO.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="VBO.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Program.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Material.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Geometry.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="FullScreenTexture.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="FullScreenQuadGeometry.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="CubeGeometry.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Coordinates.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="PointGeometry.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
+    <ClInclude Include="ProjectedScene.h">
       <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="stb_image.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Uniform.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="LinAlg.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Satellite.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Libs\imGui\imconfig.h">
       <Filter>Header Files\imGui</Filter>
@@ -212,6 +182,66 @@
     <ClInclude Include="..\Libs\imGui\imgui_impl_opengl3_loader.h">
       <Filter>Header Files\imGui</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Graphics\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Coordinates.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Graphics\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry.h">
+      <Filter>Header Files\Graphics\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="LinAlg.h">
+      <Filter>Header Files\Graphics\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Header Files\Graphics\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files\Graphics\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Program.h">
+      <Filter>Header Files\Graphics\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Header Files\Graphics\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Header Files\Graphics\stb_image</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files\Graphics\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Uniform.h">
+      <Filter>Header Files\Graphics\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="VAO.h">
+      <Filter>Header Files\Graphics\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="VBO.h">
+      <Filter>Header Files\Graphics\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="CubeGeometry.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="FullScreenTexture.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobeScene.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SatelliteProjectedView.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\Graphics\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="SatelliteBasicView.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="BasicVS.glsl">
@@ -224,6 +254,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="TexturedVS.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ProjectedVS.glsl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

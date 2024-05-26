@@ -17,3 +17,12 @@ float Coordinates::getTheta() const
 {
 	return m_theta;
 }
+
+float Coordinates::getThetaECEF(float earthRotation) const
+{
+	float res = m_theta - earthRotation;
+	if (res < 0.f) {
+		res += 2 * M_PI;
+	}
+	return res;
+}

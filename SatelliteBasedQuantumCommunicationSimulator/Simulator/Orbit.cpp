@@ -37,12 +37,14 @@ void Orbit::update(float dt)
 
 std::shared_ptr<Coordinates> Orbit::getCoordinates() const 
 {
-	float r = semiMajorAxis;
+	float r = (powf(a, 2) - powf(c, 2)) / (c * cosf(trueAnomaly) + a);
 	float phi = asinf(cosf(trueAnomaly) * sinf(inclination));
 	float theta = atanf(sinf(trueAnomaly) / (cosf(trueAnomaly) * cosf(inclination)));
 	if (trueAnomaly > M_PI / 2 && trueAnomaly < 3 * M_PI / 2) {
 		theta += M_PI;
 	}
+	if (trueAnomaly > 3 * M_PI / 2)
+		theta += 2 * M_PI;
 	auto coords = std::make_shared<Coordinates>(r, phi, theta);
 	return coords;
 }

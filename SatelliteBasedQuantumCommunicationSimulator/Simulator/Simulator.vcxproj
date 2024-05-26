@@ -155,13 +155,16 @@
     <ClCompile Include="FullScreenQuadGeometry.cpp" />
     <ClCompile Include="FullScreenTexture.cpp" />
     <ClCompile Include="Geometry.cpp" />
+    <ClCompile Include="GlobeScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Orbit.cpp" />
     <ClCompile Include="PointGeometry.cpp" />
     <ClCompile Include="Program.cpp" />
-    <ClCompile Include="Satellite.cpp" />
+    <ClCompile Include="SatelliteBasicView.cpp" />
+    <ClCompile Include="SatelliteProjectedView.cpp" />
+    <ClCompile Include="ProjectedScene.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="stb_image.cpp" />
@@ -188,13 +191,16 @@
     <ClInclude Include="FullScreenQuadGeometry.h" />
     <ClInclude Include="FullScreenTexture.h" />
     <ClInclude Include="Geometry.h" />
+    <ClInclude Include="GlobeScene.h" />
     <ClInclude Include="LinAlg.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Orbit.h" />
     <ClInclude Include="PointGeometry.h" />
     <ClInclude Include="Program.h" />
-    <ClInclude Include="Satellite.h" />
+    <ClInclude Include="SatelliteBasicView.h" />
+    <ClInclude Include="SatelliteProjectedView.h" />
+    <ClInclude Include="ProjectedScene.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="stb_image.h" />
@@ -206,6 +212,7 @@
   <ItemGroup>
     <None Include="BasicFS.glsl" />
     <None Include="BasicVS.glsl" />
+    <None Include="ProjectedVS.glsl" />
     <None Include="TexturedFS.glsl" />
     <None Include="TexturedVS.glsl" />
   </ItemGroup>

@@ -15,7 +15,7 @@ PointGeometry::PointGeometry()
 
 void PointGeometry::draw()
 {
-	glPointSize(10.f);
+	glPointSize(4.f);
 	vao.Bind();
 	glDrawArrays(GL_POINTS, 0, 1);
 	vao.Unbind();

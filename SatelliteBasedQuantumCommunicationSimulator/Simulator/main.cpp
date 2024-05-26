@@ -7,11 +7,12 @@
 
 #include <iostream>
 #include <chrono>
-#include "Scene.h"
+#include "ProjectedScene.h"
+#include "GlobeScene.h"
 
 
 std::chrono::steady_clock::time_point timeAtLastFrame;
-Scene scene = Scene();
+auto scene = ProjectedScene();
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
 	glViewport(0, 0, width, height);

@@ -11,7 +11,7 @@
 class Orbit
 {
 public:
-	Orbit(float semiMajorAxis = 6.571E6f, float eccentricity = 0.4f, float inclination = M_PI/4, float longitudeOfAscendingNode = 0.f, float argumentOfPerigee = 0.f, float trueAnomaly = 0.f);
+	Orbit(float semiMajorAxis = 6.571E6f, float eccentricity = 0.0f, float inclination = M_PI/4, float longitudeOfAscendingNode = 0.f, float argumentOfPerigee = 0.f, float trueAnomaly = 0.f);
 	void update(float dt);
 	std::shared_ptr<Coordinates> getCoordinates() const;
 

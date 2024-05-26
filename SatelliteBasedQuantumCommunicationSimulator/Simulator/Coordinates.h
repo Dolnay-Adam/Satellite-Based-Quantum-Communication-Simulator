@@ -1,5 +1,7 @@
 #pragma once
 #include "LinAlg.h"
+#define _USE_MATH_DEFINES
+#include "math.h"
 
 class Coordinates
 {
@@ -10,6 +12,7 @@ public:
 	float getPhi() const;
 	float getTheta() const;
 	// And so on...
+	float getThetaECEF(float earthRotation) const;
 
 private:
 	float m_r;
